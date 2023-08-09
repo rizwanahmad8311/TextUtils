@@ -41,12 +41,12 @@ function App() {
     <>
       
       <BrowserRouter>
-      <NavBar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
+      <NavBar title="TextUtils" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
 
       <Routes>
-        <Route path="TextUtils/" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
-        <Route path="TextUtils/home" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
+        <Route path="TextUtils/" element={<TextForm showAlert={showAlert}   mode={mode} />} />
+        <Route path="TextUtils/home" element={<TextForm showAlert={showAlert} mode={mode}/>} />
         <Route path="TextUtils/about" element={<About mode={mode} />} />
       </Routes>
       </BrowserRouter>
