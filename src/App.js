@@ -45,8 +45,9 @@ function App() {
       <Alert alert={alert} />
 
       <Routes>
-        <Route path="/home" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
-        <Route path="/about-us" element={<About />} />
+        <Route path="TextUtils/" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
+        <Route path="TextUtils/home" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
+        <Route path="TextUtils/about" element={<About mode={mode} />} />
       </Routes>
       </BrowserRouter>
 
