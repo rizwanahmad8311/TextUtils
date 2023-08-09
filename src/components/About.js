@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-export default function About() {
+export default function
+    () {
         const [mystyle, setmystyle] = useState({
             color:'black',
             backgroundColor:'white'
