@@ -1,14 +1,22 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alerts';
-import {useState} from 'react'
+import { useState } from 'react'
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message,type) => {
+  const showAlert = (message, type) => {
     setAlert({
       msg: message,
       type: type,
@@ -18,27 +26,35 @@ function App() {
     }, 1500);
   }
   const toggleMode = () => {
-    if (mode==='light') {
+    if (mode === 'light') {
       setMode('dark')
       document.body.style.backgroundColor = '#042730'
-      showAlert("Dark Mode Has been Enabled","success")
-    }else{
+      showAlert("Dark Mode Has been Enabled", "success")
+    } else {
       setMode('light')
       document.body.style.backgroundColor = 'white'
-      showAlert("Light Mode Has been Enabled","success")
+      showAlert("Light Mode Has been Enabled", "success")
     }
   }
+
   return (
     <>
+      
+      <BrowserRouter>
       <NavBar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
-      <div className="container">
-      <TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode}/>
-      {/* <About/> */}
-      </div>
-        
-      {/* <NavBar  /> */}
+
+      <Routes>
+        <Route path="/" element={<TextForm showAlert={showAlert} title="Enter Your Text Below" placeholder="Enter Text Here" mode={mode} />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      </BrowserRouter>
+
+
+
     </>
+
+
 
   );
 }
